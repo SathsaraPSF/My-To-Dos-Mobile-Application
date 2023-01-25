@@ -1,0 +1,6 @@
+<Image
+        source={{ uri: user.photoURL }}
+        style={{ width: 100, height: 100, margin: 50, borderRadius: 150 }}
+      />
+
+      <Button title="Sign Out" onPress={signOut} style={{ margin: 20 }} />

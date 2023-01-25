@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "706762384411",
+    "project_id": "my-todos-95e28",
+    "storage_bucket": "my-todos-95e28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706762384411:android:e8d9d91df4f5c1408ec4be",
+        "android_client_info": {
+          "package_name": "com.sathsarapsf.MyToDos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706762384411-dte00lhgbc25ol4g1l6ge5bmp7e72lpt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sathsarapsf.MyToDos",
+            "certificate_hash": "e3c8343646fa5f28274503edeea210a8e0f60d4a"
+          }
+        },
+        {
+          "client_id": "706762384411-ghfvpedupo07mcrba1jhksp51gbpuq2h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sathsarapsf.MyToDos",
+            "certificate_hash": "2686c9bd68627767bd9b926bdb13cd41ba09666c"
+          }
+        },
+        {
+          "client_id": "706762384411-4t06kpuo4c54e8bnjmu3njnesr660vgm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo0nkVU3YbmUXsmck34BhJ7dfWeyFPWV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706762384411-4t06kpuo4c54e8bnjmu3njnesr660vgm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
