@@ -127,7 +127,7 @@ export default function App() {
           }}
         >
           <Text style={{ fontSize: 40 }}>Hi</Text>
-          <Text style={{ marginLeft: 9, fontSize: 20 }}>
+          <Text style={{ marginLeft: 9, fontSize: 20, marginTop: 11 }}>
             {user.displayName}
           </Text>
         </View>
