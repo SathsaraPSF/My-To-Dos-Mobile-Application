@@ -123,14 +123,23 @@ export default function App() {
             flexDirection: "row",
             width: "50%",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "flex-start",
+            marginTop: 20,
+            marginLeft: -100,
           }}
         >
           <Text style={{ fontSize: 40 }}>Hi</Text>
-          <Text style={{ marginLeft: 9, fontSize: 20 }}>
+          <Text style={{ marginLeft: 9, fontSize: 20, marginTop: 11 }}>
             {user.displayName}
           </Text>
         </View>
+      </View>
+      <View style={styles.header}>
+        <Text
+          style={{ fontSize: 40, fontFamily: "cursive", fontWeight: "600" }}
+        >
+          Add your To-Dos
+        </Text>
       </View>
 
       <Button title="Sign Out" onPress={signOut} style={{ marginTop: 100 }} />
@@ -198,5 +207,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: "absolute",
     top: -150,
+  },
+
+  header: {
+    position: "absolute",
+    top: 100,
+    alignSelf: "center",
   },
 });
