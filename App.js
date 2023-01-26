@@ -152,7 +152,7 @@ export default function App() {
           </Text>
         </View>
       </View>
-      <View style={styles.header}>
+      <View style={styles.Header}>
         <Text
           style={{ fontSize: 40, fontFamily: "cursive", fontWeight: "600" }}
         >
@@ -192,6 +192,7 @@ export default function App() {
           onChangeText={(text) => {
             setText(text);
           }}
+          placeholderTextColor="rgba(113,30,30,0.5)"
           placeholder="Write To Do"
         />
         <TouchableOpacity style={styles.button} onPress={HandleAddTask}>
@@ -264,7 +265,7 @@ const styles = StyleSheet.create({
     top: -200,
   },
 
-  header: {
+  Header: {
     position: "absolute",
     top: 100,
     alignSelf: "center",
@@ -282,6 +283,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EFE7E7",
     borderRadius: 23,
     padding: 10,
+    color: "#570404",
   },
 
   button: {
@@ -299,7 +301,7 @@ const styles = StyleSheet.create({
     fontWeight: "100",
   },
   todos: {
-    marginTop: 170,
-    marginBottom: 100,
+    marginTop: 180,
+    marginBottom: 50,
   },
 });
