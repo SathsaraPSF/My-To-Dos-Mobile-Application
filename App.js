@@ -7,6 +7,9 @@ import {
   Text,
   TouchableOpacity,
   View,
+  KeyboardAvoidingView,
+  ScrollView,
+  TextInput,
 } from "react-native";
 import "expo-dev-client";
 import auth, { firebase } from "@react-native-firebase/auth";
@@ -15,8 +18,23 @@ import {
   GoogleSignin,
   GoogleSigninButton,
 } from "@react-native-google-signin/google-signin";
+import Task from "./components/Task";
 
 export default function App() {
+  const [text, setText] = useState();
+  const [taskItems, setTaskItems] = useState([]);
+
+  const HandleAddTask = () => {
+    setTaskItems([...taskItems, text]);
+    setText(null);
+  };
+
+  const completeTask = (index) => {
+    let itemCopy = [...taskItems];
+    itemCopy.splice(index, 1);
+    setTaskItems(itemCopy);
+  };
+
   GoogleSignin.configure({
     webClientId:
       "706762384411-4t06kpuo4c54e8bnjmu3njnesr660vgm.apps.googleusercontent.com",
@@ -124,12 +142,12 @@ export default function App() {
             width: "50%",
             alignItems: "center",
             justifyContent: "flex-start",
-            marginTop: 20,
+            marginTop: 130,
             marginLeft: -100,
           }}
         >
           <Text style={{ fontSize: 40 }}>Hi</Text>
-          <Text style={{ marginLeft: 9, fontSize: 20, marginTop: 11 }}>
+          <Text style={{ marginLeft: 9, fontSize: 20, marginTop: 10 }}>
             {user.displayName}
           </Text>
         </View>
@@ -143,6 +161,43 @@ export default function App() {
       </View>
 
       <Button title="Sign Out" onPress={signOut} style={{ marginTop: 100 }} />
+
+      {/* Todo list goes here */}
+
+      <ScrollView style={styles.todos}>
+        {taskItems.map((text, index) => {
+          return (
+            <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+              <Task text={text} />
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
+
+      {/* Task Input Area */}
+
+      <KeyboardAvoidingView
+        style={{
+          flexDirection: "row",
+          width: "90%",
+          justifyContent: "space-around",
+          alignItems: "center",
+          alignSelf: "center",
+          marginBottom: 10,
+        }}
+        behavior="padding"
+      >
+        <TextInput
+          style={styles.textArea}
+          onChangeText={(text) => {
+            setText(text);
+          }}
+          placeholder="Write To Do"
+        />
+        <TouchableOpacity style={styles.button} onPress={HandleAddTask}>
+          <Text style={styles.buttonText}>+</Text>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
     </View>
   );
 }
@@ -206,12 +261,45 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    top: -150,
+    top: -200,
   },
 
   header: {
     position: "absolute",
     top: 100,
     alignSelf: "center",
+  },
+  taskInputArea: {
+    flexDirection: "row",
+    width: "90%",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+
+  textArea: {
+    width: 250,
+    height: 56,
+    backgroundColor: "#EFE7E7",
+    borderRadius: 23,
+    padding: 10,
+  },
+
+  button: {
+    width: 58,
+    height: 53,
+    borderRadius: 29,
+    backgroundColor: "#EFE7E7",
+  },
+
+  buttonText: {
+    fontSize: 68,
+    color: "#600A0A",
+    marginVertical: -20,
+    textAlign: "center",
+    fontWeight: "100",
+  },
+  todos: {
+    marginTop: 170,
+    marginBottom: 100,
   },
 });
