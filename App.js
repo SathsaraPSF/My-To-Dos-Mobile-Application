@@ -139,7 +139,11 @@ export default function App() {
           <Text style={{ fontSize: 15, fontWeight: "300", color: "#711E1E" }}>
             Don't have an google account ?
           </Text>
-          <TouchableOpacity onPress={() => Linking.openURL()}>
+          <TouchableOpacity
+            onPress={() =>
+              Linking.openURL("https://accounts.google.com/SignUp")
+            }
+          >
             <Text style={{ margin: 10, fontWeight: "700", color: "#711E1E" }}>
               Create account
             </Text>
