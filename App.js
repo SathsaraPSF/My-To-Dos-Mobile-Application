@@ -24,6 +24,19 @@ import Task from "./components/Task";
 export default function App() {
   const [text, setText] = useState();
   const [taskItems, setTaskItems] = useState([]);
+  const [currentDate, setCurrentDate] = useState("");
+
+  useEffect(() => {
+    var date = new Date().getDate(); //Current Date
+    var month = new Date().getMonth() + 1; //Current Month
+    var year = new Date().getFullYear(); //Current Year
+    var hours = new Date().getHours(); //Current Hours
+    var min = new Date().getMinutes(); //Current Minutes
+    var sec = new Date().getSeconds(); //Current Seconds
+    setCurrentDate(
+      date + "/" + month + "/" + year + " " + hours + ":" + min + ":" + sec
+    );
+  }, []);
 
   const HandleAddTask = () => {
     setTaskItems([...taskItems, text]);
@@ -182,6 +195,9 @@ export default function App() {
         {taskItems.map((text, index) => {
           return (
             <TouchableOpacity key={index} onPress={() => completeTask(index)}>
+              <Text style={{ alignSelf: "center", marginBottom: 10 }}>
+                {currentDate}
+              </Text>
               <Task text={text} />
             </TouchableOpacity>
           );
