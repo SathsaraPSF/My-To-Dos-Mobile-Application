@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import "expo-dev-client";
 import auth, { firebase } from "@react-native-firebase/auth";
+import Icon from "react-native-vector-icons/Ionicons";
 
 import {
   GoogleSignin,
@@ -160,7 +161,20 @@ export default function App() {
         </Text>
       </View>
 
-      <Button title="Sign Out" onPress={signOut} style={{ marginTop: 100 }} />
+      <TouchableOpacity style={styles.signOutButton} onPress={signOut}>
+        <Icon name="log-out" size={20} color="#600A0A" />
+        <Text
+          style={{
+            fontSize: 15,
+            fontWeight: "500",
+            color: "#600A0A",
+          }}
+        >
+          Log out
+        </Text>
+      </TouchableOpacity>
+
+      {/* <Button title="Sign Out" onPress={signOut} style={{ marginTop: 100 }} /> */}
 
       {/* Todo list goes here */}
 
@@ -251,6 +265,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     alignItems: "center",
   },
+
   // ----------------------------------------------------------------------------
 
   desin: {
@@ -303,5 +318,14 @@ const styles = StyleSheet.create({
   todos: {
     marginTop: 180,
     marginBottom: 50,
+  },
+  signOutButton: {
+    position: "absolute",
+    right: 10,
+    top: 10,
+    flexDirection: "row",
+    width: "22%",
+    justifyContent: "space-around",
+    alignItems: "center",
   },
 });
