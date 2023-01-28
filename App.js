@@ -10,6 +10,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   TextInput,
+  Linking,
 } from "react-native";
 import "expo-dev-client";
 import auth, { firebase } from "@react-native-firebase/auth";
@@ -138,7 +139,7 @@ export default function App() {
           <Text style={{ fontSize: 15, fontWeight: "300", color: "#711E1E" }}>
             Don't have an google account ?
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => Linking.openURL()}>
             <Text style={{ margin: 10, fontWeight: "700", color: "#711E1E" }}>
               Create account
             </Text>
@@ -195,7 +196,14 @@ export default function App() {
         {taskItems.map((text, index) => {
           return (
             <TouchableOpacity key={index} onPress={() => completeTask(index)}>
-              <Text style={{ alignSelf: "center", marginBottom: 10 }}>
+              <Text
+                style={{
+                  alignSelf: "center",
+                  marginBottom: 10,
+                  color: "#600A0A",
+                  fontWeight: "300",
+                }}
+              >
                 {currentDate}
               </Text>
               <Task text={text} />
