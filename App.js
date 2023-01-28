@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
     fontWeight: "100",
   },
   todos: {
-    marginTop: 180,
+    marginTop: 230,
     marginBottom: 50,
   },
   signOutButton: {
